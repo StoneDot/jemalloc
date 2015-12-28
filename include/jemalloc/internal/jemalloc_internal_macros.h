@@ -53,5 +53,5 @@
 #endif
 
 #ifndef JEMALLOC_HAS_RESTRICT
-#  define restrict
+#  define RESTRICT
 #endif

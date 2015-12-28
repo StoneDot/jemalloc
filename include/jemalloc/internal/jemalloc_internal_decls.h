@@ -44,7 +44,7 @@ typedef intptr_t ssize_t;
 #  define STDERR_FILENO 2
 #  define __func__ __FUNCTION__
 #  ifdef JEMALLOC_HAS_RESTRICT
-#    define restrict __restrict
+#    define RESTRICT __restrict
 #  endif
 /* Disable warnings about deprecated system functions. */
 #  pragma warning(disable: 4996)

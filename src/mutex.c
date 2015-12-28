@@ -31,8 +31,8 @@ static void	pthread_create_once(void);
  */
 
 #if defined(JEMALLOC_LAZY_LOCK) && !defined(_WIN32)
-static int (*pthread_create_fptr)(pthread_t *__restrict, const pthread_attr_t *,
-    void *(*)(void *), void *__restrict);
+static int (*pthread_create_fptr)(pthread_t *RESTRICT, const pthread_attr_t *,
+    void *(*)(void *), void *RESTRICT);
 
 static void
 pthread_create_once(void)
@@ -49,9 +49,9 @@ pthread_create_once(void)
 }
 
 JEMALLOC_EXPORT int
-pthread_create(pthread_t *__restrict thread,
-    const pthread_attr_t *__restrict attr, void *(*start_routine)(void *),
-    void *__restrict arg)
+pthread_create(pthread_t *RESTRICT thread,
+    const pthread_attr_t *RESTRICT attr, void *(*start_routine)(void *),
+    void *RESTRICT arg)
 {
 	static pthread_once_t once_control = PTHREAD_ONCE_INIT;
 
