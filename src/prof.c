@@ -11,6 +11,10 @@
 #include <unwind.h>
 #endif
 
+#ifdef _MSC_VER
+#include <sys/stat.h>
+#endif
+
 /******************************************************************************/
 /* Data. */
 
@@ -520,6 +524,12 @@ prof_backtrace(prof_bt_t *bt)
 	BT_FRAME(127)
 #undef BT_FRAME
 }
+#elif (defined(JEMALLOC_PROF) && defined(_MSC_VER))
+void
+prof_backtrace(prof_bt_t *bt, unsigned nignore)
+{
+  bt->len = RtlCaptureStackBackTrace(nignore + 1, PROF_BT_MAX, bt->vec, NULL);
+}
 #else
 void
 prof_backtrace(prof_bt_t *bt)
@@ -933,7 +943,11 @@ prof_dump_open(bool propagate_err, const char *filename)
 {
 	int fd;
 
+#ifndef _MSC_VER
 	fd = creat(filename, 0644);
+#else
+    fd = creat(filename, S_IREAD | S_IWRITE);
+#endif
 	if (fd == -1 && !propagate_err) {
 		malloc_printf("<jemalloc>: creat(\"%s\"), 0644) failed\n",
 		    filename);
