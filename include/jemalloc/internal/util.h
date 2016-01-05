@@ -136,6 +136,7 @@ int	get_errno(void);
 #  error Both JEMALLOC_INTERNAL_FFSL && JEMALLOC_INTERNAL_FFS should have been defined by configure
 #endif
 
+#ifndef _MSC_VER
 JEMALLOC_ALWAYS_INLINE int
 jemalloc_ffsl(long bitmap)
 {
@@ -149,6 +150,25 @@ jemalloc_ffs(int bitmap)
 
 	return (JEMALLOC_INTERNAL_FFS(bitmap));
 }
+#else
+#include <intrin.h>
+
+JEMALLOC_ALWAYS_INLINE int
+jemalloc_ffsl(long bitmap)
+{
+  int bit;
+  _BitScanForward(&bit, bitmap);
+  return bit;
+}
+
+JEMALLOC_ALWAYS_INLINE int
+jemalloc_ffs(int bitmap)
+{
+  int bit;
+  _BitScanForward(&bit, bitmap);
+  return bit;
+}
+#endif
 
 /* Compute the smallest power of 2 that is >= x. */
 JEMALLOC_INLINE size_t

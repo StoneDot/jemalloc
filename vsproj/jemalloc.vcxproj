@@ -22,6 +22,7 @@
     <ProjectGuid>{A082C17B-850D-46AE-940E-5AC76A2327B4}</ProjectGuid>
     <RootNamespace>jemalloc</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>static-jemalloc</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

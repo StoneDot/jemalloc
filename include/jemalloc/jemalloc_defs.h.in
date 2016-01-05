@@ -16,13 +16,8 @@
  * Define overrides for non-standard allocator-related functions if they are
  * present on the system.
  */
-#ifndef _MSC_VER
 #undef JEMALLOC_OVERRIDE_MEMALIGN
 #undef JEMALLOC_OVERRIDE_VALLOC
-#else
-#define	JEMALLOC_OVERRIDE_MEMALIGN
-#define	JEMALLOC_OVERRIDE_VALLOC
-#endif
 
 /*
  * At least Linux omits the "const" in:
@@ -41,10 +36,8 @@
 #undef JEMALLOC_USE_CXX_THROW
 
 /* sizeof(void *) == 2^LG_SIZEOF_PTR. */
-#if defined(_WIN32) || defined(_M_IX86)
-#define LG_SIZEOF_PTR       2
-#elif defined(_WIN64) || defined(_M_X64)
-#define LG_SIZEOF_PTR       3
-#else
 #undef LG_SIZEOF_PTR
+
+#ifdef _MSC_VER
+#  include "jemalloc_defs_msvc.h"
 #endif

@@ -526,9 +526,9 @@ prof_backtrace(prof_bt_t *bt)
 }
 #elif (defined(JEMALLOC_PROF) && defined(_MSC_VER))
 void
-prof_backtrace(prof_bt_t *bt, unsigned nignore)
+prof_backtrace(prof_bt_t *bt)
 {
-  bt->len = RtlCaptureStackBackTrace(nignore + 1, PROF_BT_MAX, bt->vec, NULL);
+  bt->len = RtlCaptureStackBackTrace(0, PROF_BT_MAX, bt->vec, NULL);
 }
 #else
 void

@@ -259,4 +259,8 @@
  */
 #undef JEMALLOC_EXPORT
 
+#ifdef _MSC_VER
+#  include "jemalloc_internal_defs_msvc.h"
+#endif
+
 #endif /* JEMALLOC_INTERNAL_DEFS_H_ */
