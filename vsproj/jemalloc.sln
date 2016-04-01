@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jemalloc", "jemalloc.vcxproj", "{A082C17B-850D-46AE-940E-5AC76A2327B4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "static-jemalloc-prof", "static-jemalloc-prof.vcxproj", "{A082C17B-850D-46AE-940E-5AC76A2327B4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "static-jemalloc", "static-jemalloc.vcxproj", "{6398E5B3-0D4E-4D58-A792-3AE5BE82ABC8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jemalloc-test", "..\jemalloc-test\jemalloc-test.vcxproj", "{7CB55A80-C980-4197-979C-EE0606027FD1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6398E5B3-0D4E-4D58-A792-3AE5BE82ABC8} = {6398E5B3-0D4E-4D58-A792-3AE5BE82ABC8}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +28,22 @@ Global
 		{A082C17B-850D-46AE-940E-5AC76A2327B4}.Release|x64.Build.0 = Release|x64
 		{A082C17B-850D-46AE-940E-5AC76A2327B4}.Release|x86.ActiveCfg = Release|Win32
 		{A082C17B-850D-46AE-940E-5AC76A2327B4}.Release|x86.Build.0 = Release|Win32
+		{6398E5B3-0D4E-4D58-A792-3AE5BE82ABC8}.Debug|x64.ActiveCfg = Debug|x64
+		{6398E5B3-0D4E-4D58-A792-3AE5BE82ABC8}.Debug|x64.Build.0 = Debug|x64
+		{6398E5B3-0D4E-4D58-A792-3AE5BE82ABC8}.Debug|x86.ActiveCfg = Debug|Win32
+		{6398E5B3-0D4E-4D58-A792-3AE5BE82ABC8}.Debug|x86.Build.0 = Debug|Win32
+		{6398E5B3-0D4E-4D58-A792-3AE5BE82ABC8}.Release|x64.ActiveCfg = Release|x64
+		{6398E5B3-0D4E-4D58-A792-3AE5BE82ABC8}.Release|x64.Build.0 = Release|x64
+		{6398E5B3-0D4E-4D58-A792-3AE5BE82ABC8}.Release|x86.ActiveCfg = Release|Win32
+		{6398E5B3-0D4E-4D58-A792-3AE5BE82ABC8}.Release|x86.Build.0 = Release|Win32
+		{7CB55A80-C980-4197-979C-EE0606027FD1}.Debug|x64.ActiveCfg = Debug|x64
+		{7CB55A80-C980-4197-979C-EE0606027FD1}.Debug|x64.Build.0 = Debug|x64
+		{7CB55A80-C980-4197-979C-EE0606027FD1}.Debug|x86.ActiveCfg = Debug|Win32
+		{7CB55A80-C980-4197-979C-EE0606027FD1}.Debug|x86.Build.0 = Debug|Win32
+		{7CB55A80-C980-4197-979C-EE0606027FD1}.Release|x64.ActiveCfg = Release|x64
+		{7CB55A80-C980-4197-979C-EE0606027FD1}.Release|x64.Build.0 = Release|x64
+		{7CB55A80-C980-4197-979C-EE0606027FD1}.Release|x86.ActiveCfg = Release|Win32
+		{7CB55A80-C980-4197-979C-EE0606027FD1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

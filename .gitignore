@@ -73,3 +73,10 @@ test/include/test/jemalloc_test_defs.h
 /test/unit/*.out
 
 /VERSION
+vsproj/tmp/
+Release/
+Debug/
+.vs/
+*.sdf
+*.db
+*.opendb
