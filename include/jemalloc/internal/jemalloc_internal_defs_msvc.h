@@ -4,5 +4,5 @@
  */
 #ifdef _MSC_VER
 #undef CPU_SPINWAIT
-#define CPU_SPINWAIT __asm pause
+#define CPU_SPINWAIT _mm_pause()
 #endif

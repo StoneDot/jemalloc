@@ -117,6 +117,8 @@
 /* JEMALLOC_STATS enables statistics calculation. */
 #undef JEMALLOC_STATS
 
+#ifndef _MSC_VER
+
 /* JEMALLOC_PROF enables allocation profiling. */
 #undef JEMALLOC_PROF
 
@@ -128,6 +130,8 @@
 
 /* Use gcc intrinsics for profile backtracing if defined. */
 #undef JEMALLOC_PROF_GCC
+
+#endif
 
 /*
  * JEMALLOC_TCACHE enables a thread-specific caching layer for small objects.
